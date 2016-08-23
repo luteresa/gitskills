@@ -1,0 +1,33 @@
+安装的方法有两种，一种直接是通过ubuntu的APT安装，这种方法最简便，缺点是版本可能不是最新的。所有还有另一种方法是下载源码进行安装，这种能安装到想要的版本。这里只说第一种：
+
+步骤：
+
+sudo apt-get update
+sudo apt-get install git
+
+然后配置自己的git账号信息，这样才能进行相关的操作：
+
+git config --global user.name "Your Name"
+git config --global user.email "youremail@domain.com"
+
+可以通过下面的命令查看git的配置信息：
+
+git config --list
+
+    1
+
+显示信息如下：
+
+    user.name=Your Name
+    user.email=youremail@domain.com
+
+这样就表示git的安装告一段落，可以使用git的一些命令了，比如git clone。
+
+    sugar@sugar-HP-Pro-2000-Microtower-PC:~/mygit$ git clone https://github.com/NJUOS/LiteNES.git
+    正克隆到 ‘LiteNES’…
+    remote: Counting objects: 90, done.
+    remote: Total 90 (delta 0), reused 0 (delta 0), pack-reused 90
+    Unpacking objects: 100% (90/90), done.
+    检查连接… 完成。
+
+成功clone LiteNES到本地，LiteNES是一款用C语言写的MINI版本的NES模拟器。
