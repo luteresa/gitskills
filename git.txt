@@ -1,0 +1,74 @@
+1.install git
+sudo apt-get install git
+
+2.add user id
+$git config --global user.name "Your Name"
+$git config --global user.email "email@example.com"
+
+3.create repository
+$git init
+
+4.add file
+$git add readme.txt
+
+5.commit file
+$git commit -m "wrote a readme file"
+
+6.git status命令可以让我们时刻掌握仓库当前的状态
+git status
+
+7.查看修改内容
+git diff
+
+8.查看历史版本记录
+git log  --pretty=oneline
+
+9.回退到上一个版本
+git reset --hard HEAD^
+上上个:HEAD^^
+上N个：HEAD~n
+
+恢复到指定版本
+git reset  --hard  99357e7
+
+git reflog：列举历史回退记录，可以查询版本ID号
+
+10.查看工作区和版本库区别
+git diff HEAD -- readme.txt
+
+11.撤销修改
+1)撤销工作区修改
+git checkout -- readme.txt
+2)撤销暂存区修改
+git reset HEAD readme.txt
+git checkout -- readme.txt
+3)若没提交到远程版本库，撤销本次提交
+git reset   //版本回退
+
+11.删除文件
+1)删除
+git rm test.txt
+git commit -m "remove test.txt"
+2)误删:恢复最新版本
+git checkout -- test.txt
+
+12.远程仓库
+1)创建SSH Key
+home目录下，ssh-keygen -t rsa -C "youremail@example.com"
+一路回车会生成id_rsa和id_rsa.pub两个文件
+id_rsa是私钥， id_rsa.pub是公钥
+
+2)gitHbu上创建一个仓库，然后把本地仓库与之关联，进行同步
+git remote add origin git@github.com:luteresa/testgit.git //关联要给远程库，远程库名字origin
+git push -u origin  master    //推送master分支所有内容到远程origin
+
+3)从已经存在的远程仓库克隆
+git clone git@github.com:luteresa/gitskills.git
+...   //本地代码管理操作
+git push -u origin  master  //推送到远程仓库
+
+
+
+
+
+
