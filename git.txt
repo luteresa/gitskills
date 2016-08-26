@@ -92,4 +92,34 @@ git merge <name>
 6)删除分支
 git branch -d <name>
 
+15.解决冲突
+1).当出现冲突时
+git merge feature1
+git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Unmerged paths:
+#   (use "git add/rm <file>..." as appropriate to mark resolution)
+#
+#       both modified:      readme.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+直接查看readme.txt的内容
+Git tracks changes of files.
+<<<<<<< HEAD
+Creating a new branch is quick & simple.
+=======
+Creating a new branch is quick AND simple.
+>>>>>>> feature1
+Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，手动修改后保存。
 
+2).提交
+git add test.txt
+git commit -m "fonclict fixed"
+
+3).查看分支合并情况
+git log --graph --pretty=oneline --abbrev-commit
+
+4).删除feature1分支
+git branch -d feature1
