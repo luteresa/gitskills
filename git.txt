@@ -68,6 +68,15 @@ git clone git@github.com:luteresa/gitskills.git
 git push -u origin  master  //推送到远程仓库
 
 
+13.过滤不需要提交到仓库的文件
+在工作区目录下创建.gitignore文件，提交到仓库则生效
+https://github.com/github/gitignore
+GitHub做好了很多文件，可以稍加修改拿来用；
+如果文件被.gitignore过滤掉，但又确实想添加，可以强制添加
+git add -f file.txt
+
+或者发现无法提交，可能是.gitignore写的有问题，可以查询哪个规则写错了
+git check-ignore -v file.txt
 
 
 
