@@ -123,3 +123,51 @@ git log --graph --pretty=oneline --abbrev-commit
 
 4).删除feature1分支
 git branch -d feature1
+
+16.分支管理策略
+用--no-ff 强制禁用Fast forward模式
+开发中，一般master分支用来发布版本，而开发工作在各自的dev分支开发并提交，只有稳定版本才合并到master
+
+git merge --no-ff -m "merge with no-ff" dev
+这样普通模式合并后，就有礼是分支信息，能看出来曾经做过合并；
+
+17.BUG分支
+每个Bug都可以通过临时分支来修复，修复后合并分支，然后删除临时分支；
+比如接到临时bug任务issue-101, 先将工作现场临时“储藏”起来，修复后，再恢复现场
+git stash
+这是用git status查看工作区是干净的，因此可以放心创建临时分支
+git checkout -b issue-101
+在issue-101上修复bug，提交;
+git add;
+git commit -m "fix bug 101"
+修复完成后，切换到master分支，完成合并，删除issue-101分支
+git checkout master
+git merge --no-ff -m "merged bug fix 101" issue-101
+git branch -d issue-101
+完成后，切换到工作区继续干活
+$ git checkout dev
+Switched to branch 'dev'
+$ git status
+# On branch dev
+nothing to commit (working directory clean)
+
+工作区是干净的，恢复储藏代码
+git stash list
+两种方式恢复：
+1).git stash apply;  //恢复工作区内容
+git stash drop;     //删除stash内容
+2).git pop           //恢复的同时把stash内容删掉
+
+git  stash list 查看
+
+可以多次stash，然后恢复制定stash
+ @git stash list
+ stash@{0}: WIP on dev: 6224937 add merge
+
+  git stash apply stash@{0}
+
+18.Feature分支
+添加定制新功能时，为不影响主干代码，可以建立featurea分支，完成后合并，最后删除feature分支
+Feature分支操作与BUG分支类似，当在没有合并之前，如何删除，就会丢失掉修改，如果要强行删除，
+git branch -D featrue-branch
+
