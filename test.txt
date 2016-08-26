@@ -4,7 +4,6 @@ git_install.txt
 git.txt
 linux_drv_gitignore
 README.md
-test.txt
 Creating a new branch is quick & simple.
 Creating a new branch is quick AND simple.
 add new commit
