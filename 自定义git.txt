@@ -1,0 +1,34 @@
+git有很多可配置项
+1.让Git显示颜色
+git config --global color.ui true
+
+
+2.配置别名
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.br branch
+
+//撤销命令
+git config --global alias.unstage 'reset HEAD'
+git unstage test.py
+实际上Git执行的是：$ git reset HEAD test.py
+
+//最后一次提交信息
+yyb@frontendserver:~/work/git/gitskills$ git config --global alias.last 'log -1'
+yyb@frontendserver:~/work/git/gitskills$ git last 
+commit 1c0e187457368a802de293c73737a855db17082f
+Merge: ea7edc2 606c665
+Author: leonyu <luteresa@163.com>
+Date:   Fri Aug 26 15:02:41 2016 +0800
+
+    merge with no-ff
+	yyb@frontendserver:~/work/git/gitskills$ 
+
+//lg特效
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+
+
+--global参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用
+

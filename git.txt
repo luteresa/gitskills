@@ -180,3 +180,39 @@ git branch -D featrue-branch
 5)建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
 6)从远程抓取分支，使用git pull，如果有冲突，要先处理冲突
 
+20.标签管理
+1)标签与分支类似，只想commit的指针，但是标签不可移动；
+2)TAG就是给个容易记的名字，与原来某个commit绑定一定;
+
+3)默认创建标签给HEAD， 也可以指定一个commit
+git tab v1.0 
+git log --pretty=oneline --abbrev-commit
+git tab v0.9 ea7edc2  
+git show v0.9
+
+4)可以指定标签信息
+git tag -a v0.1 -m "version 0.1 released" 3628164
+
+5)可以用PGP签名标签
+git tag -s <tagname> -m "blablabla..."
+签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对
+git show <tagname>可以看到PGP签名信息
+用PGP签名的标签是不可伪造的，因为可以验证PGP签名。
+
+6)修改标签，可以删除
+git tag -d v0.1
+
+7)推送标签到远程
+git push origin v0.1
+一次性推送所有未被推送到远程的标签
+git push origin --tags
+
+8)标签已推送远程，删除方法
+git tag -d v0.1   //本地删除
+git push origin :refs/tags/v0.1  //再push远程删除
+
+21.使用GitHub
+1)在GitHub上，可以任意Fork开源仓库;
+自己拥有Fork后的仓库的读写权限;
+可以推送pull request给官方仓库来贡献代码;
+1)
