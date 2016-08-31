@@ -62,3 +62,5 @@ yyb@frontendserver:~$ cat .gitconfig
 	last = log -1
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 yyb@frontendserver:~$ 
+
+可以直接编辑修改配置文件
