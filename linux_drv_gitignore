@@ -1,3 +1,10 @@
+#SOURCE INSIGHT PRO
+*.I*
+*.P*
+*.SearchResults
+*.WK3
+.svn
+
 # Prerequisites
 *.d
 
