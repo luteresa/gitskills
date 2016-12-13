@@ -135,7 +135,7 @@ git branch -d feature1
 开发中，一般master分支用来发布版本，而开发工作在各自的dev分支开发并提交，只有稳定版本才合并到master
 
 git merge --no-ff -m "merge with no-ff" dev
-这样普通模式合并后，就有礼是分支信息，能看出来曾经做过合并；
+这样普通模式合并后，就有历史分支信息，能看出来曾经做过合并；
 
 17.BUG分支
 每个Bug都可以通过临时分支来修复，修复后合并分支，然后删除临时分支；
@@ -174,7 +174,7 @@ git  stash list 查看
 
 18.Feature分支
 添加定制新功能时，为不影响主干代码，可以建立featurea分支，完成后合并，最后删除feature分支
-Feature分支操作与BUG分支类似，当在没有合并之前，如果删除，就会丢失掉修改，如果要强行删除，
+Feature分支操作与BUG分支类似，当在没有合并之前，if删除，就会丢失掉修改，如果要强行删除，
 git branch -D featrue-branch
 
 
