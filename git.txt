@@ -174,7 +174,7 @@ git  stash list 查看
 
 18.Feature分支
 添加定制新功能时，为不影响主干代码，可以建立featurea分支，完成后合并，最后删除feature分支
-Feature分支操作与BUG分支类似，当在没有合并之前，如何删除，就会丢失掉修改，如果要强行删除，
+Feature分支操作与BUG分支类似，当在没有合并之前，if删除，就会丢失掉修改，如果要强行删除，
 git branch -D featrue-branch
 
 
