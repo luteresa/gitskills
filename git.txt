@@ -52,7 +52,7 @@ git reset   //版本回退
 git rm test.txt
 git commit -m "remove test.txt"
 2)误删:恢复最新版本
-git checkout -- test.txt
+git checkout -- test.txt  // "--"不能省，否则变成了切换到另一个分支
 
 12.远程仓库
 1)创建SSH Key
@@ -65,13 +65,15 @@ id_rsa是私钥， id_rsa.pub是公钥
 把公钥id_ira.pub内容复制过去
 
 2)gitHbu上创建一个仓库，然后把本地仓库与之关联，进行同步
-git remote add origin git@github.com:luteresa/testgit.git //关联要给远程库，远程库名字origin
+git remote add origin git@github.com:luteresa/testgit.git //关联一个远程库，远程库名字origin
 git push -u origin  master    //推送master分支所有内容到远程origin
 
 3)从已经存在的远程仓库克隆
 git clone git@github.com:luteresa/gitskills.git
 ...   //本地代码管理操作
 git push -u origin  master  //推送到远程仓库
+//加上"-u"参数，Git不但把本地的master分支内容推送到远程的master分支，还会把它们关联起来，以后推送或者拉取时就可以简化命令；
+git push origin master
 
 
 13.过滤不需要提交到仓库的文件
@@ -94,7 +96,7 @@ git checkout <name>
 4)创建+切换分支
 git checkout -b <name>
 5)合并某分支到当前分支
-git merge <name>
+git merge <name>     //Fast-forward模式合并，就是直接把master指向dev当前提交
 6)删除分支
 git branch -d <name>
 
@@ -160,9 +162,9 @@ nothing to commit (working directory clean)
 工作区是干净的，恢复储藏代码
 git stash list
 两种方式恢复：
-1).git stash apply;  //恢复工作区内容
+1)git stash apply;  //恢复工作区内容
 git stash drop;     //删除stash内容
-2).git pop           //恢复的同时把stash内容删掉
+2)git pop           //恢复的同时把stash内容删掉
 
 git  stash list 查看
 
