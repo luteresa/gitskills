@@ -64,11 +64,11 @@ home目录下，ssh-keygen -t rsa -C "youremail@example.com"
 一路回车会生成id_rsa和id_rsa.pub两个文件
 id_rsa是私钥， id_rsa.pub是公钥
 
-登陆githut.com，选择setting/ssh keys/
+登陆github.com，选择setting/ssh keys/
 添加SSH key
 把公钥id_ira.pub内容复制过去
 
-2)gitHbu上创建一个仓库，然后把本地仓库与之关联，进行同步
+2)gitHub上创建一个仓库，然后把本地仓库与之关联，进行同步
 git remote add origin git@github.com:luteresa/testgit.git //关联一个远程库，远程库名字origin
 git push -u origin  master    //推送master分支所有内容到远程origin
 
