@@ -22,6 +22,10 @@ git status
 7.查看修改内容
 git diff
 
+查看两个制定版本的差异：
+git log
+git diff  vxxx1    vxxx2
+
 8.查看历史版本记录
 git log  --pretty=oneline
 
