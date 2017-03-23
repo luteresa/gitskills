@@ -237,6 +237,21 @@ git push origin :refs/tags/v0.1  //再push远程删除
 2)git pull origin  master 
 3)git push -u origin master
 
-23.
+23.本地仓库与多个远程仓库了关联
+1)查询本地仓库的远程关联
+~$ git remote   -v
+origin  ssh://admin@192.168.13.168:29418/AF_SAMPLE.git (fetch)
+origin  ssh://admin@192.168.13.168:29418/AF_SAMPLE.git (push)
+
+2)add关联新的远程仓库
+git remote add  s1_3m  ssh://admin@192.168.13.168:29418/S1_3M_AF.git
+$ git remote   -v
+origin  ssh://admin@192.168.13.168:29418/AF_SAMPLE.git (fetch)
+origin  ssh://admin@192.168.13.168:29418/AF_SAMPLE.git (push)
+s1_3m   ssh://admin@192.168.13.168:29418/S1_3M_AF.git (fetch)
+s1_3m   ssh://admin@192.168.13.168:29418/S1_3M_AF.git (push)
+
+3)推送远程仓库
+git push s1_3m s1_3m 
 
 
