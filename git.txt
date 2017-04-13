@@ -196,7 +196,7 @@ git branch -D featrue-branch
 6)从远程抓取分支，使用git pull，如果有冲突，要先处理冲突
 
 20.标签管理
-1)标签与分支类似，只想commit的指针，但是标签不可移动；
+1)标签与分支类似，是指向commit的指针，但是标签不可移动；
 2)TAG就是给个容易记的名字，与原来某个commit绑定一定;
 
 3)默认创建标签给HEAD， 也可以指定一个commit
@@ -254,4 +254,5 @@ s1_3m   ssh://admin@192.168.13.168:29418/S1_3M_AF.git (push)
 3)推送远程仓库
 git push s1_3m s1_3m 
 
-
+4)从指定远程仓库pull
+git pull s1_3m  s1_3m 
