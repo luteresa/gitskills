@@ -54,7 +54,7 @@ git reset   //版本回退
 11.删除文件
 1)删除
 git rm test.txt
-eit commit -m "remove test.txt"
+git commit -m "remove test.txt"
 2)误删:恢复最新版本
 git checkout -- test.txt  // "--"不能省，否则变成了切换到另一个分支
 
