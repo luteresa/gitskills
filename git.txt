@@ -35,9 +35,11 @@ git reset --hard HEAD^
 上N个：HEAD~n
 
 恢复到指定版本
-git reset  --hard  99357e7
+git reset --soft xxxx  //只回退commit,本地修改保持；如还要再提交，直接commit即可；
+git reset --hard xxxx  //放弃所有修改，回退到XXX版本
 
 git reflog：列举历史回退记录，可以查询版本ID号
+
 
 10.查看工作区和版本库区别
 git diff HEAD -- readme.txt
@@ -50,6 +52,7 @@ git reset HEAD readme.txt
 git checkout -- readme.txt
 3)若没提交到远程版本库，撤销本次提交
 git reset   //版本回退
+
 
 11.删除文件
 1)删除
