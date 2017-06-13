@@ -255,6 +255,7 @@ s1_3m   ssh://admin@192.168.13.168:29418/S1_3M_AF.git (fetch)
 s1_3m   ssh://admin@192.168.13.168:29418/S1_3M_AF.git (push)
 
 3)推送远程仓库
+git push [远程库名] [本地分支名] : [远程分支名]
 git push s1_3m s1_3m 
 
 4)从指定远程仓库pull
