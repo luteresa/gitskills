@@ -40,6 +40,8 @@ git reset --hard xxxx  //放弃所有修改，回退到XXX版本
 
 git reflog：列举历史回退记录，可以查询版本ID号
 
+回退到远程remote同步
+git reset  --hard  origin/master 
 
 10.查看工作区和版本库区别
 git diff HEAD -- readme.txt
@@ -60,6 +62,9 @@ git rm test.txt
 git commit -m "remove test.txt"
 2)误删:恢复最新版本
 git checkout -- test.txt  // "--"不能省，否则变成了切换到另一个分支
+3)从版本库里删掉某文件的版本管理，但是不删除本地文件
+git rm -r --cached -n xx.txt  //-n只是打印，不真正执行
+git rm -r --cached xx.txt//执行rm命令，本地文件会保留
 
 12.远程仓库
 1)创建SSH Key
@@ -260,3 +265,13 @@ git push s1_3m s1_3m
 
 4)从指定远程仓库pull
 git pull s1_3m  s1_3m 
+
+24.查看哪些文件是在版本控制下；
+git ls-files
+
+25.git注释换行
+git commit -m '
+1.it is a test;
+2.linefeed;
+'
+
