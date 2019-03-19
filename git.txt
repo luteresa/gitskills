@@ -275,3 +275,5 @@ git commit -m '
 2.linefeed;
 '
 
+26.修改文件名
+git mv oldname   newname
