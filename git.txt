@@ -68,7 +68,8 @@ git rm -r --cached xx.txt//执行rm命令，本地文件会保留
 
 12.远程仓库
 1)创建SSH Key
-home目录下，ssh-keygen -t rsa -C "youremail@example.com"
+cd ~/.ssh
+ssh-keygen -t rsa -C "youremail@example.com"
 一路回车会生成id_rsa和id_rsa.pub两个文件
 id_rsa是私钥， id_rsa.pub是公钥
 
