@@ -278,3 +278,14 @@ git commit -m '
 
 26.修改文件名
 git mv oldname   newname
+
+
+merger kernel :
+git remote  add upstream https://github.com/torvalds/linux.git
+
+git fetch upstream
+
+git merge upstream/master
+
+git push
+
