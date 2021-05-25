@@ -50,8 +50,8 @@ git diff HEAD -- readme.txt
 1)撤销工作区修改
 git checkout -- readme.txt
 2)撤销暂存区修改
-git reset HEAD readme.txt
-git checkout -- readme.txt
+git reset HEAD readme.txt   //撤销指定文件readme.txt的add
+git reset HEAD    //撤销所有add
 3)若没提交到远程版本库，撤销本次提交
 git reset   //版本回退
 
@@ -279,13 +279,77 @@ git commit -m '
 26.修改文件名
 git mv oldname   newname
 
+27.查询哪些文件在版本控制下
+git ls-files
 
-merger kernel :
-git remote  add upstream https://github.com/torvalds/linux.git
+fork之后的本地仓库与原仓库同步；
+场景：
+在github，从祖师爷torvalds的帐号里，fork了linux的源码；将自己github里的Linux仓库clone到本地供学习研究用；
+自己的修改，也会及时提交到github仓库，问题来了，一段时间之后，torvalds的仓库有了很多更新，如何将这些更新同步到个人github仓库？
 
-git fetch upstream
+原仓库:https://github.com/torvalds/linux.git
+个人仓库:https://github.com/luteresa/linux.git
 
-git merge upstream/master
 
+step1:在本地仓库添加原仓库为上游代码库
+$ git remote  -v
+origin  https://github.com.cnpmjs.org/luteresa/linux.git (fetch)
+origin  https://github.com.cnpmjs.org/luteresa/linux.git (push)
+
+$git remote add upstream https://github.com/torvalds/linux.git
+
+$ git remote  -v
+origin  https://github.com.cnpmjs.org/luteresa/linux.git (fetch)
+origin  https://github.com.cnpmjs.org/luteresa/linux.git (push)
+upstream        https://github.com/torvalds/linux.git (fetch)
+upstream        https://github.com/torvalds/linux.git (push)
+
+由于众所周知的原因，给github加下速，添加upstream2；
+leon@pc:~/work/myHub/kernel$ git remote  -v
+origin  https://github.com.cnpmjs.org/luteresa/linux.git (fetch)
+origin  https://github.com.cnpmjs.org/luteresa/linux.git (push)
+upstream        https://github.com/torvalds/linux.git (fetch)
+upstream        https://github.com/torvalds/linux.git (push)
+upstream2       https://github.com.cnpmjs.org/torvalds/linux.git (fetch)
+upstream2       https://github.com.cnpmjs.org/torvalds/linux.git (push)
+
+step2,同步上游原仓库修改到本地；
+leon@pc:~/work/myHub/kernel$ 
+git fetch upstream2
+
+leon@pc:~/work/myHub/kernel$ git log
+commit 8404c9fbc84b741f66cff7d4934a25dd2c344452
+Merge: a79cdfb 36f0b35
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Wed May 5 13:50:15 2021 -0700
+
+    Merge branch 'akpm' (patches from Andrew)
+	    
+	    Merge more updates from Andrew Morton:
+		     "The remainder of the main mm/ queue.
+			     
+			       143 patches.
+
+可见，本地仓库实际代码尚未同步
+
+查看本地分支:
+leon@pc:~/work/myHub/kernel$ git branch  -a
+* master
+  remotes/origin/HEAD -> origin/master
+    remotes/origin/master
+	  remotes/upstream2/master
+
+step3:合并上游原仓库修改到本地
+$ git merge upstream2/master 
+
+leon@pc:~/work/myHub/kernel$ git log
+commit a050a6d2b7e80ca52b2f4141eaf3420d201b72b3
+Merge: 1434a31 f8b61bd
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Mon May 24 16:03:24 2021 -1000
+
+可见本地源码已同步到最新
+
+step4: 本地修改推送到github
 git push
-
+git push origin HEAD --force
