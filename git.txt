@@ -353,3 +353,9 @@ Date:   Mon May 24 16:03:24 2021 -1000
 step4: 本地修改推送到github
 git push
 git push origin HEAD --force
+
+
+
+修改远程仓库地址
+
+git remote set-url origin xxxx.git
