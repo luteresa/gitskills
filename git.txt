@@ -7,6 +7,9 @@ $git config --global user.email "email@example.com"
 //每个机器都必须带name和email
 //git config命令的--global参数，表示这台机器上的所有Git仓库都会使用这个地址
 
+git config --global core.editor vim
+
+
 3.create repository
 $git init
 
@@ -28,6 +31,14 @@ git diff  vxxx1    vxxx2
 
 8.查看历史版本记录
 git log  --pretty=oneline
+查看指定作者的记录
+git log --author=leon --oneline
+查看修改对比信息：
+ git log --patch-with-stat 
+ 
+ 查看某个指定提交
+ git show commit_id
+
 
 9.回退到上一个版本
 git reset --hard HEAD^
@@ -142,6 +153,9 @@ Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，手动修改�
 git add test.txt
 git commit -m "fonclict fixed"
 
+git commit添加"-s"，会在提交中自动添加"Signed-off-by:"签名；
+
+对提交内容作修改，git commit --amend
 3).查看分支合并情况
 git log --graph --pretty=oneline --abbrev-commit
 
